@@ -72,6 +72,7 @@ static t_pald_thread_list thread_main_functions [] = {
 static const size_t total_thread_num
     = sizeof(thread_main_functions)/sizeof(*thread_main_functions);
 
+static const int PAS_MAX_DIR_SIZE = 256; 
 static cps_api_operation_handle_t cps_hdl;
 static char *progname, *config_filename, *fuse_mount_dir;
 static bool pas_status, diag_mode;
@@ -316,12 +317,16 @@ char *dn_pald_fuse_mount_dir_get(void)
 
 static t_std_error dn_pald_init(int argc, char *argv[])
 {
+    char str[PAS_MAX_DIR_SIZE];
     t_std_error ret = STD_ERR_OK;
 
     /* Parse and store command line args */
 
     progname        = argv[0];
-    config_filename = PAS_CONFIG_FILENAME_DFLT;
+    snprintf(str, PAS_MAX_DIR_SIZE, "%s%s", (getenv("OPX_INSTALL_PATH") ? getenv("OPX_INSTALL_PATH") : ""), 
+             PAS_CONFIG_FILENAME_DFLT);
+
+    config_filename = str;
     fuse_mount_dir  = PAS_FUSE_MOUNT_DIR_DFLT;
 
     for (++argv, --argc; argc > 0; ) {
