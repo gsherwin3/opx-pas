@@ -76,8 +76,8 @@ static const int PAS_MAX_DIR_SIZE = 256;
 static cps_api_operation_handle_t cps_hdl;
 static char *progname, *config_filename, *fuse_mount_dir;
 static bool pas_status, diag_mode;
-/* EXTREME_HACK static char PAS_CONFIG_FILENAME_DFLT[] = "/etc/opx/pas/config.xml"; */
-static char PAS_CONFIG_FILENAME_DFLT[] = "/etc/opx/dell-s6000/pas/config.xml";
+/* EXTREME_HACK address in snapcraft_vm.yaml static char PAS_CONFIG_FILENAME_DFLT[] = "/etc/opx/pas/config.xml"; */
+static char PAS_CONFIG_FILENAME_DFLT[] = "/vendor/dell/s6000/etc/opx/pas/config.xml";
 static char PAS_FUSE_MOUNT_DIR_DFLT[]  = "/mnt/fuse";
 
 
