@@ -14,17 +14,6 @@
  * permissions and limitations under the License.
  */
 
-/***************************************************************************
-* LEGALESE:   "Copyright (c) 2015, Dell Inc. All rights reserved."
-*
-* This source code is confidential, proprietary, and contains trade
-* secrets that are the sole property of Dell Inc.
-* Copy and/or distribution of this source code or disassembly or reverse
-* engineering of the resultant object code are strictly forbidden without
-* the written consent of Dell Inc.
-*
-**************************************************************************/
-
 /**************************************************************************
 * @file pas_media.c
 *
@@ -3476,7 +3465,7 @@ bool dn_pas_media_phy_supported_speed_config_set (uint_t port, uint_t channel,
 
     if (((mtbl = dn_phy_media_entry_get(port)) == NULL)
             || (dn_phy_is_media_channel_valid(port, channel) == false)){
-        PAS_ERR("Invlaid port (%u)", port);
+        PAS_ERR("Invalid port (%u)", port);
 
         return false;
     }
